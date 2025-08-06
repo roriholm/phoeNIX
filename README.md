@@ -10,7 +10,7 @@ Start with a fresh folder containing only the contents of this repo.
 nix develop
 mix archive.install hex phx_new
 mix phx.new . --app my_phoenix_app
-mix ecto.create
+mix setup
 ```
 Don't overwrite the Readme with phx.new, you still need to read me.
 
