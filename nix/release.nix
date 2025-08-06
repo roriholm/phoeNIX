@@ -19,7 +19,7 @@ let
   mixDeps = fetchMixDeps {
     pname = "${pname}-mix-deps";
     inherit version src;
-    hash = "sha256-wIJDshMsiTLy6Xq0ONzCpcTyD4ynsCzHri/RBvCAb3s=";
+    hash = "sha256-jbdzkVxs4Cn0t4kzrA2hqBbTDSUY/UU1sNgc1HbPp18=";
   };
 
   npmDeps = if builtins.pathExists "${src}/assets/package.json" then
@@ -57,7 +57,7 @@ buildMixRelease {
 
   preConfigure = ''
     substituteInPlace config/config.exs \
-      --replace "config :tailwind," "config :tailwind, path: \"${myEnv.tailwind}/bin/tailwindcss\","\
+      --replace "System.find_executable(\"tailwindcss\")," "\"${myEnv.tailwind}/bin/tailwindcss\","\
       --replace "config :esbuild," "config :esbuild, path: \"${myEnv.esbuild}/bin/esbuild\", "
 
   '';

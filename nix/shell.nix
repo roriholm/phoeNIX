@@ -15,6 +15,7 @@ mkShell {
       myEnv.beamPackages.erlang
       myEnv.beamPackages.elixir
       myEnv.nodePackages.nodejs
+      myEnv.tailwind
     ]
     ++
     # Linux only

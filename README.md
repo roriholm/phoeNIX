@@ -10,9 +10,31 @@ Start with a fresh folder containing only the contents of this repo.
 nix develop
 mix archive.install hex phx_new
 mix phx.new . --app my_phoenix_app
-mix setup
 ```
 Don't overwrite the Readme with phx.new, you still need to read me.
+
+Now we need to work around the default setup to use our provided version of `tailwindcss`.
+First go to `config/config.exs` and look for where it say:
+```
+config :tailwind,
+  version: "4.1.7",
+```
+change this to:
+```
+config :tailwind,
+  path: System.find_executable("tailwindcss")
+```
+
+Next go to `mix.exs` and find the alias:
+```
+      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
+```
+delete `assets.setup` out of there.
+
+Now you are free to run
+```
+mix setup
+```
 
 # Run
 `iex -S mix phx.server`

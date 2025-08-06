@@ -62,7 +62,7 @@ rec {
       minimal = buildBeamPackages pkgs.beam_minimal;
     };
     nodePackages = buildNodePackages pkgs;
-    tailwind = pkgs.tailwindcss;
+    tailwind = pkgs.tailwindcss_4;
     esbuild = pkgs.esbuild;
   };
 
